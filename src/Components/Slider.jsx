@@ -21,14 +21,13 @@ const Slider = () => {
           rerum libero.
         </div>
         <div className="btnSee">
-            <button className="button">
-          <span className="button_lg">
-            <span className="button_sl"></span>
-            <span className="button_text">see more</span>
-          </span>
-        </button>
+          <button className="button">
+            <span className="button_lg">
+              <span className="button_sl"></span>
+              <span className="button_text">see more</span>
+            </span>
+          </button>
         </div>
-        
       </div>
     </div>
   );

@@ -12,12 +12,12 @@ function App() {
         <div className="titleRela">
           <span>Related</span>
         </div>
-        
+        <div className="items">
           <Item />
           <Item />
           <Item />
           <Item />
-        
+        </div>
       </div>
     </>
   );

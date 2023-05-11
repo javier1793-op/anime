@@ -10,6 +10,7 @@
   grid-row-gap: 1rem; 
   background: #242424;
   color: #f4f6f7 ;
+  gap: 1rem;
   min-height: 100vh;
 }
 .container .titleRela{
@@ -20,6 +21,9 @@
   font-size: 2rem;
 }
 .container .items{
-  grid-column: span 1;
-  padding: 0 2rem;
+  grid-column: span 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
