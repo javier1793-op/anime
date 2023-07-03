@@ -21,7 +21,7 @@ const Slider = () => {
     const data= response.data.data
 
     setTop(data.slice(-1).pop())
-    console.log(top)
+    
     
   })
   .catch(function (error) {
@@ -30,6 +30,8 @@ const Slider = () => {
   })
   }, [setTop])
 
+  
+
   return (
     <div className="containerSlider">
       <div className="contentSlider">
@@ -37,14 +39,16 @@ const Slider = () => {
           {top.title_synonyms}
         </div>
         <div className="genero">
-          {top.genres.map((oneGen, idx)=>{
+       
+        {top?.genres?.map((oneGen)=>{
             return(
               <Genero 
               genero={oneGen.name}
-              key={idx} />
+              key={oneGen.mal_id}
+              />
             )
           })}
-          
+         
         </div>
         <div className="description">
           {top.synopsis}
