@@ -1,38 +1,62 @@
-import '../css/login.scss'
+import "../css/login.scss";
+
+import Swal from "sweetalert2";
+import { Navigate } from "react-router-dom";
+import { useState } from "react";
 
 const Login = () => {
+  const [validado, setValidado] = useState(false);
 
+  const handlerSubmit = (e) => {
+    e.preventDefault();
+    const mailUsuario = e.target.mailbox.value;
+    const passUsuario = e.target.passbox.value;
+    const mailregex =
+      /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    const token = "asd123asd123asd123asd123asd123asd";
 
-    
-    return (
-    <section className='containerLogin'>
-    <div className="form-box">
-        <div className="form-value">
-            <form >
-                <h2 className='titleLogin'>Koppo Anime</h2>
-                <div className="inputbox">
-                    <ion-icon name="mail-outline"></ion-icon>
-                    <input 
-                    type="email"
-                
-                    required/>
-                    <label >Email</label>
-                </div>
-                <div className="inputbox">
-                    <ion-icon name="lock-closed-outline"></ion-icon>
-                    <input type="password" 
-            
-                    required/>
-                    <label >Contraseña</label>
-                </div>
-                
-                <button className='btnLogin' >Ingresar</button>
-    
+    if (mailUsuario == "" || passUsuario == "") {
+      return Swal.fire("Campos en blanco");
+    }
+
+    if (!mailregex.test(mailUsuario)) {
+      return Swal.fire("El formato no corresponde a un Mail");
+    }
+
+    if (!(mailUsuario === "koppo@gmail.com") || !(passUsuario === "koppo")) {
+      return Swal.fire("usuario inexistente");
+    }
+
+    localStorage.setItem("tokenPag", token);
+    setValidado(true);
+  };
+
+  return (
+    <>
+      {validado && <Navigate to="/home" />}
+      <section className="containerLogin">
+        <div className="form-box">
+          <div className="form-value">
+          <form onSubmit={handlerSubmit}>
+              <h2 className="titleLogin">Koppo Anime</h2>
+              <div className="inputbox">
+                <ion-icon name="mail-outline"></ion-icon>
+                <input type="email" name="mailbox"/>
+                <label>Email</label>
+              </div>
+              <div className="inputbox">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input type="password" name="passbox"/>
+                <label>Contraseña</label>
+              </div>
+
+              <button className="btnLogin">Ingresar</button>
             </form>
+          </div>
         </div>
-    </div>
-</section>
-  )
-}
+      </section>
+    </>
+  );
+};
 
-export default Login
+export default Login;

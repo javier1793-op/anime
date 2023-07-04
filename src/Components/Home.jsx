@@ -5,13 +5,14 @@ import Head from "./Head"
 import Item from "./Item"
 import Slider from "./Slider"
 import { useEffect, useState } from 'react';
-
+import { Navigate } from "react-router-dom";
 
 
 
 const Home = () => {
 
   const [list, setlist] = useState([])
+  const storageValue = localStorage.getItem("tokenPag")
 
   const endPoint='https://api.jikan.moe/v4/top/anime'
  
@@ -35,6 +36,8 @@ const Home = () => {
  
 
   return (
+    <>
+    {storageValue == null && <Navigate to="/"/>}
     <div className="container">
         <Head />
         <Slider />
@@ -59,6 +62,8 @@ const Home = () => {
           
         </div>
       </div>
+    </>
+    
   )
 }
 
