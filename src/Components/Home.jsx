@@ -50,11 +50,11 @@ const Home = () => {
               title={anime.title}
               img={anime.images.jpg.image_url}
               genero={anime.genres}
-              />,
+              />
             )
           })  
           }
-          
+       
           
         </div>
       </div>
