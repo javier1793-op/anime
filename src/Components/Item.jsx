@@ -1,10 +1,12 @@
+import { Link } from 'react-router-dom'
 import '../css/item.scss'
-import Portada from '../assets/prueba2.jpg'
 import Genero from './Genero'
 
-const Item = ({title, img,genero}) => {
+const Item = ({title, img,genero,mal_id}) => {
 
-  var limitGen= genero.slice(0, 2)
+  var limitGen= genero.slice(0, 2);
+
+
 
   return (
     <div className="containerItem">
@@ -21,12 +23,15 @@ const Item = ({title, img,genero}) => {
             )
           })}
         </span>
-        <button className="button">
+        <Link to={`/detail?id=${mal_id}`} className='link'>
+          <button className="button">
           <span className="button_lg">
             <span className="button_sl"></span>
             <span className="button_text">see more</span>
           </span>
         </button>
+        </Link>
+        
     </div>
   )
 }

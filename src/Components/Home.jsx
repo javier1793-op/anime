@@ -31,7 +31,7 @@ const Home = () => {
   })
   }, [setlist])
   
- console.log(list)
+ 
  
 
   return (
@@ -43,10 +43,11 @@ const Home = () => {
         </div>
         <div className="items">
 
-          {list.map((anime, idx)=>{
+          {list.map((anime)=>{
             return(
               <Item
-              key={idx}
+              key={anime.mal_id}
+              mal_id={anime.mal_id}
               title={anime.title}
               img={anime.images.jpg.image_url}
               genero={anime.genres}
