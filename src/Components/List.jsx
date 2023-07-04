@@ -17,7 +17,7 @@ const List = () => {
 
   const endPoint=`https://api.jikan.moe/v4/anime?q=${name}`
  
-
+  console.log(name)
   useEffect(() => {
    axios.get(endPoint)
   .then(function (response) {
@@ -32,7 +32,7 @@ const List = () => {
     Swal.fire(`A ocurrido un error ${error}`)
 
   })
-  }, [setlist])
+  },[setlist])
 
   return (
     <>

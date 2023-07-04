@@ -3,18 +3,25 @@ import "../css/head.scss";
 import { BiSearchAlt } from "react-icons/bi";
 import { TbArrowBigRightLineFilled } from "react-icons/tb";
 import { Link, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Head = () => {
 
-  const [name, setName] = useState('')
+  const history = useNavigate()
 
   const handleSubmit=(e)=>{
+    const Anime = e.currentTarget.nameAnime.value.trim();
     e.preventDefault();
-    const Anime = e.target.nameAnime.value;
-    setName(Anime)
+    
+    if( Anime.length === 0){
+      return Swal.fire("Debe ingresar un valor");
+    }
+
+    history(`/result?search=${Anime}`)
   }
 
-    console.log(name)
+   
   return (
     <>
     {name != '' && <Navigate to={`/home?search=${name}`}/>}
