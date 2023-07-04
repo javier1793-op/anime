@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import "../css/slider.scss";
 
 import Genero from "./Genero";
+import { Link } from "react-router-dom";
 
 const Slider = () => {
 
@@ -53,14 +54,18 @@ const Slider = () => {
         <div className="description">
           {top.synopsis}
         </div>
-        <div className="btnSee">
-          <button className="button">
-            <span className="button_lg">
-              <span className="button_sl"></span>
-              <span className="button_text">see more</span>
-            </span>
-          </button>
-        </div>
+        <Link to={`/detail?id=${top.mal_id}`} className='link'>
+      <div className="btnSee">
+                <button className="button">
+                  <span className="button_lg">
+                    <span className="button_sl"></span>
+                    <span className="button_text">see more</span>
+                  </span>
+                </button>
+              </div>
+
+        </Link>
+        
       </div>
     </div>
   );

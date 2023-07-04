@@ -14,11 +14,12 @@ import Head from "./Head";
 import { Link } from "react-router-dom";
 import Synopsis from "./Synopsis";
 import Trailer from "./Trailer";
+import Episodes from "./Episodes";
 
 const Details = () => {
   const [oneAnime, setOneAnime] = useState([]);
   const [like, setLike] = useState(false);
-  const [menu, setMenu] = useState('synopsis')
+  const [menu, setMenu] = useState("synopsis");
 
   const valores = window.location.search;
   const urlParams = new URLSearchParams(valores);
@@ -42,8 +43,6 @@ const Details = () => {
   const handleLike = () => {
     setLike(!like);
   };
-
- 
 
   return (
     <>
@@ -94,35 +93,55 @@ const Details = () => {
             <div className="infoDetail borderSection">
               <div className="backColor">
                 <div className="menuInfo">
-                  <button 
-                  className={`btn back ${menu === 'synopsis'?'active':''}`}
-                  onClick={()=>{setMenu('synopsis')}}
-                  >synopsis</button>
-                  <button 
-                  className={`btn back ${menu === 'trailer'?'active':''}`}
-                  onClick={()=>{setMenu('trailer')}}
-                  >trailer</button>
+                  <button
+                    className={`btn back ${
+                      menu === "synopsis" ? "active" : ""
+                    }`}
+                    onClick={() => {
+                      setMenu("synopsis");
+                    }}
+                  >
+                    synopsis
+                  </button>
+                  <button
+                    className={`btn back ${menu === "trailer" ? "active" : ""}`}
+                    onClick={() => {
+                      setMenu("trailer");
+                    }}
+                  >
+                    trailer
+                  </button>
+                  <button
+                    className={`btn back ${
+                      menu === "episodes" ? "active" : ""
+                    }`}
+                    onClick={() => {
+                      setMenu("episodes");
+                    }}
+                  >
+                    episodes
+                  </button>
                 </div>
                 <div className="contentInfo">
-                {menu === 'synopsis'?
-                <Synopsis 
-                data={oneAnime?.synopsis}
-                score={oneAnime?.score}
-                episodes={oneAnime?.episodes}
-                status={oneAnime?.status}
-                year={oneAnime?.year}
-                genres={oneAnime?.genres}
-                />
-                :
-                <Trailer
-                url={oneAnime?.trailer.url}
-                />
-                }
-                
-              </div>
+                  {menu === "synopsis" && (
+                    <Synopsis
+                      data={oneAnime?.synopsis}
+                      score={oneAnime?.score}
+                      episodes={oneAnime?.episodes}
+                      status={oneAnime?.status}
+                      year={oneAnime?.year}
+                      genres={oneAnime?.genres}
+                    />
+                  )}
+                  {menu === "trailer" && (
+                    <Trailer url={oneAnime?.trailer.url} />
+                  )}
+                  {menu === "episodes" && <Episodes id={oneAnime?.mal_id} />}
+                </div>
               </div>
             </div>
           </div>
+         
         </div>
       </div>
     </>

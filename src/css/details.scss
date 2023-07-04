@@ -200,6 +200,13 @@ h2{
     flex-direction: column;
     font-size: 1.3rem;
   }
+  .relationDetail{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 98%;
+  }
 
   @media (max-width:900px){
     .detailSection .imgDetail{
@@ -207,5 +214,8 @@ h2{
     }
     .detailSection .infoDetail{
         width: 100%; 
+    }
+    .relationDetail{
+      width: 100%;
     }
 }
