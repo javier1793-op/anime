@@ -23,7 +23,7 @@ const Item = ({title, img,genero,mal_id}) => {
             )
           })}
         </span>
-        <Link to={`/detail?id=${mal_id}`} className='link'>
+        <Link to={`/anime/detail?id=${mal_id}`} className='link'>
           <button className="button">
           <span className="button_lg">
             <span className="button_sl"></span>

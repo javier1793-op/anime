@@ -50,7 +50,7 @@ const Details = () => {
         <Head />
         <div className="contentDetail">
           <div className="btnSection">
-            <Link to="/home" className="link">
+            <Link to="/anime/home" className="link">
               <button className="btn back">
                 <TbArrowBigLeftLinesFilled /> back to list
               </button>

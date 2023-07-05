@@ -33,7 +33,7 @@ const Login = () => {
 
   return (
     <>
-      {validado && <Navigate to="/home" />}
+      {validado && <Navigate to="/anime/home" />}
       <section className="containerLogin">
         <div className="form-box">
           <div className="form-value">

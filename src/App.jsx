@@ -17,10 +17,10 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Login/>}/>
-        <Route path='/home' element={<Home/>}/>
-        <Route path='/detail' element={<Details/>}/>
-        <Route path='/result' element={<List/>}/>
+        <Route path='/anime' element={<Login/>}/>
+        <Route path='/anime/home' element={<Home/>}/>
+        <Route path='/anime/detail' element={<Details/>}/>
+        <Route path='/anime/result' element={<List/>}/>
       </Routes>
       
       

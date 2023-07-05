@@ -54,7 +54,7 @@ const Slider = () => {
         <div className="description">
           {top.synopsis}
         </div>
-        <Link to={`/detail?id=${top.mal_id}`} className='link'>
+        <Link to={`/anime/detail?id=${top.mal_id}`} className='link'>
       <div className="btnSee">
                 <button className="button">
                   <span className="button_lg">

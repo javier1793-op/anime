@@ -18,15 +18,15 @@ const Head = () => {
       return Swal.fire("Debe ingresar un valor");
     }
 
-    history(`/result?search=${Anime}`)
+    history(`/anime/result?search=${Anime}`)
   }
 
    
   return (
     <>
-    {name != '' && <Navigate to={`/home?search=${name}`}/>}
+    {name != '' && <Navigate to={`/anime/home?search=${name}`}/>}
      <div className="containerHead">
-      <Link to="/home" className="link">
+      <Link to="/anime/home" className="link">
         <div className="logo">
           <span>k</span>oppo
         </div>
