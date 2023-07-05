@@ -3,9 +3,9 @@
   grid-column: span 4;
   background-image: url(../assets/prueba.jpg);
   -moz-background-size: 100% 100%; /*Firefox 3.6*/
+  background-size: 100% 100%; /*estandar css3*/
   -o-background-size: 100% 100%; /*opera*/
   -webkit-background-size: 100% 100%; /*Safari*/
-  background-size: 100% 100%; /*estandar css3*/
   -webkit-box-shadow: inset 0px 10px 36px 35px #242424;
   box-shadow: inset 0px 10px 36px 35px #242424;
 }

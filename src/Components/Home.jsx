@@ -44,7 +44,7 @@ const Home = () => {
         <div className="titleRela">
           <span>List</span>
         </div>
-        <div className="items">
+         <div className="items">
 
           {list.map((anime)=>{
             return(
