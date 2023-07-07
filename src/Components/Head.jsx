@@ -8,12 +8,15 @@ import Swal from "sweetalert2";
 
 const Head = () => {
 
+  const [valor, setValor] = useState('')
   const history = useNavigate()
 
   const handleSubmit=(e)=>{
-    const Anime = e.currentTarget.nameAnime.value.trim();
     e.preventDefault();
+    const Anime = e.currentTarget.nameAnime.value.trim();
+    setValor(Anime)
     
+    console.log(valor)
     if( Anime.length === 0){
       return Swal.fire("Debe ingresar un valor");
     }

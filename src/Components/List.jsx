@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation} from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import Head from "./Head";
@@ -10,14 +10,15 @@ import axios from "axios";
 const List = () => {
   const [list, setlist] = useState([]);
   const storageValue = localStorage.getItem("tokenPag");
+  const location = useLocation()
 
   const valores = window.location.search;
   const urlParams = new URLSearchParams(valores);
   var name = urlParams.get("search");
+  
 
   const endPoint=`https://api.jikan.moe/v4/anime?q=${name}`
  
-  console.log(name)
   useEffect(() => {
    axios.get(endPoint)
   .then(function (response) {
@@ -32,7 +33,7 @@ const List = () => {
     Swal.fire(`A ocurrido un error ${error}`)
 
   })
-  },[setlist])
+  },[location])
 
   return (
     <>
