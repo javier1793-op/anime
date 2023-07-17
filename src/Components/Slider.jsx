@@ -31,13 +31,14 @@ const Slider = () => {
   })
   }, [setTop])
 
-  
+ 
+ console.log(top)
 
   return (
     <div className="containerSlider">
       <div className="contentSlider">
         <div className="title">
-          {top.title_synonyms}
+          {top.title}
         </div>
         <div className="genero">
        
@@ -52,7 +53,7 @@ const Slider = () => {
          
         </div>
         <div className="description">
-          {top.synopsis}
+          {`${top?.synopsis?.slice(0,150)} ...`}
         </div>
         <Link to={`/anime/detail?id=${top.mal_id}`} className='link'>
       <div className="btnSee">

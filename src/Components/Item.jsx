@@ -11,7 +11,7 @@ const Item = ({title, img,genero,mal_id}) => {
   return (
     <div className="containerItem">
         <img src={img} alt="image" />
-        <span className='titleCard'>{title}</span>
+        <span className='titleCard'>{`${title.slice(0,20)} ...`}</span>
         <span className='itenGen'>
 
           {limitGen.map((oneGen)=>{
