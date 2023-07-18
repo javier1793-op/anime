@@ -5,6 +5,9 @@
 
 - Solution URL: [Page](https://javier1793-op.github.io/anime/)
 
+### Data
+- USER: koppo@gmail.com
+- PASS: koppo
 
 ### Built with
 
