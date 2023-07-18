@@ -32,7 +32,6 @@ const Slider = () => {
   }, [setTop])
 
  
- console.log(top)
 
   return (
     <div className="containerSlider">

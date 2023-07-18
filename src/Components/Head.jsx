@@ -16,7 +16,7 @@ const Head = () => {
     const Anime = e.currentTarget.nameAnime.value.trim();
     setValor(Anime)
     
-    console.log(valor)
+    
     if( Anime.length === 0){
       return Swal.fire("Debe ingresar un valor");
     }

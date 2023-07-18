@@ -21,6 +21,9 @@ const Details = () => {
   const [like, setLike] = useState(false);
   const [menu, setMenu] = useState("synopsis");
 
+
+ 
+  const favAnime = localStorage.getItem('favs');
   const valores = window.location.search;
   const urlParams = new URLSearchParams(valores);
   var idAnime = urlParams.get("id");
@@ -38,10 +41,34 @@ const Details = () => {
       .catch(function (error) {
         Swal.fire(`A ocurrido un error ${error}`);
       });
+      
+
   }, [setOneAnime]);
 
+  
+  
+
   const handleLike = () => {
-    setLike(!like);
+    setLike(true);
+    const dataAnime={
+      id: oneAnime.mal_id,
+      img:oneAnime.images.jpg.image_url,
+      title: oneAnime.title,
+      genres:oneAnime.genres
+    }
+
+    let tempAnime;
+    if(favAnime === null){
+      tempAnime=[]
+    }else{
+      tempAnime= JSON.parse(favAnime)
+    }
+
+
+    tempAnime.push(dataAnime)
+    localStorage.setItem('favs',JSON.stringify(tempAnime))
+
+    
   };
 
   return (

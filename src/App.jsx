@@ -1,17 +1,15 @@
 import {Routes, Route} from 'react-router-dom'
 
+import "./App.css";
 
 import Login from './Components/Login';
 import Home from './Components/Home';
-
-import "./App.css";
 import Details from './Components/Details';
 import List from './Components/List';
 import Favorite from './Components/Favorite';
 
 
 function App() {
-
 
   
 

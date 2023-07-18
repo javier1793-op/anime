@@ -1,5 +1,6 @@
-import { Navigate, useLocation} from "react-router-dom";
+import { Link, Navigate, useLocation} from "react-router-dom";
 import { useEffect, useState } from "react";
+import {TbArrowBigLeftLinesFilled} from "react-icons/tb";
 
 import Head from "./Head";
 import Item from "./Item";
@@ -40,6 +41,13 @@ const List = () => {
       {storageValue == null && <Navigate to="/" />}
       <div className="container">
         <Head />
+       
+            <Link to="/anime/home" className="link">
+              <button className="btn back">
+                <TbArrowBigLeftLinesFilled /> back to list
+              </button>
+            </Link>
+          
         <div className="titleRela">
           <span>List</span>
         </div>
