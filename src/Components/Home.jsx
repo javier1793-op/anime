@@ -42,11 +42,12 @@ const Home = () => {
         <Head />
         <Slider />
         <div className="titleRela">
-          <span>List</span>
+          <span>KOPPO your free online anime source in HD</span>
+          <hr className='subtitle'/>
         </div>
          <div className="items">
-
-          {list.map((anime)=>{
+          
+             {list.map((anime)=>{
             return(
               <Item
               key={anime.mal_id}
@@ -58,6 +59,8 @@ const Home = () => {
             )
           })  
           }
+
+         
        
           
         </div>

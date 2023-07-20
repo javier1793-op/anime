@@ -21,9 +21,7 @@ const Details = () => {
   const [like, setLike] = useState(false);
   const [menu, setMenu] = useState("synopsis");
 
-
- 
-  const favAnime = localStorage.getItem('favs');
+  const favAnime = localStorage.getItem("favs");
   const valores = window.location.search;
   const urlParams = new URLSearchParams(valores);
   var idAnime = urlParams.get("id");
@@ -41,34 +39,51 @@ const Details = () => {
       .catch(function (error) {
         Swal.fire(`A ocurrido un error ${error}`);
       });
-      
-
-  }, [setOneAnime]);
-
-  
-  
-
-  const handleLike = () => {
-    setLike(true);
-    const dataAnime={
-      id: oneAnime.mal_id,
-      img:oneAnime.images.jpg.image_url,
-      title: oneAnime.title,
-      genres:oneAnime.genres
-    }
 
     let tempAnime;
-    if(favAnime === null){
-      tempAnime=[]
-    }else{
-      tempAnime= JSON.parse(favAnime)
+    if (favAnime === null) {
+      tempAnime = [];
+    } else {
+      tempAnime = JSON.parse(favAnime);
+    }
+    handleVal(tempAnime);
+  }, []);
+
+  const handleVal = (data) => {
+    data.map((tem) => {
+      if (tem.id == idAnime) {
+        setLike(true);
+      }
+    });
+  };
+
+  const handleLike = () => {
+    const dataAnime = {
+      id: oneAnime.mal_id,
+      img: oneAnime.images.jpg.image_url,
+      title: oneAnime.title,
+      genres: oneAnime.genres,
+    };
+
+    let tempAnime;
+    if (favAnime === null) {
+      tempAnime = [];
+    } else {
+      tempAnime = JSON.parse(favAnime);
     }
 
-
-    tempAnime.push(dataAnime)
-    localStorage.setItem('favs',JSON.stringify(tempAnime))
-
-    
+    handleVal(tempAnime);
+    if (!like) {
+      tempAnime.push(dataAnime);
+      localStorage.setItem("favs", JSON.stringify(tempAnime));
+      setLike(true)
+    }
+    if (like) {
+      tempAnime.push(dataAnime);
+      tempAnime = tempAnime.filter(en => en.id !== oneAnime.mal_id)
+      localStorage.setItem("favs", JSON.stringify(tempAnime));
+      setLike(false)
+    }
   };
 
   return (
@@ -111,7 +126,11 @@ const Details = () => {
                   <button className="button btnlike" onClick={handleLike}>
                     <span className="button_lg">
                       <span className="button_sl"></span>
-                      <span className="button_text"> LIKE</span>
+                      <span className="button_text">
+                     
+                        {like && "DISLIKE" }
+                        {!like && "LIKE" }
+                      </span>
                     </span>
                   </button>
                 </div>
@@ -168,7 +187,6 @@ const Details = () => {
               </div>
             </div>
           </div>
-         
         </div>
       </div>
     </>

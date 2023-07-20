@@ -16,9 +16,20 @@
 .container .titleRela{
   grid-column: span 4;
   padding: 2rem 2rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 .titleRela span{
   font-size: 2rem;
+}
+.titleRela .subtitle{
+  color: #fc4664;
+  block-size: .5rem;
+  width: 100%;
+  margin: 2rem ;
 }
 .container .items{
   grid-column: span 4;
